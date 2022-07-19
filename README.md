@@ -1,4 +1,4 @@
-xansible-role-dovecot
+ansible-role-dovecot
 =========
 
 The simplest dovecot config to get things off the ground. We use local auth for or limited number of users.
