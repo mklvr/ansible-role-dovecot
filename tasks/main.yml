@@ -1,0 +1,23 @@
+---
+- name: Install the required packages
+  ansible.builtin.apt:
+    name:
+      - dovecot-imapd
+    state: present
+
+- name:
+  ansible.builtin.copy:
+    dest: /etc/dovecot/local.conf
+    content: |
+      mail_location = {{ dovecot_mail_location }}
+      ssl_cert = {{ dovecot_ssl_cert }}
+      ssl_key = {{ dovecot_ssl_key }}
+    owner: root
+    group: root
+    mode: "0644"
+  notify: reload_dovecot
+
+- name: Enable/Start dovecot
+  ansible.builtin.service:
+    name: dovecot
+    state: started

@@ -1,0 +1,3 @@
+---
+- name: reload_dovecot
+  ansible.builtin.service: name=dovecot state=reloaded

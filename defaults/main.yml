@@ -1,0 +1,5 @@
+---
+# defaults file for dovecot
+dovecot_mail_location: maildir:~/
+dovecot_ssl_cert: "</etc/ssl/certs/{{ ansible_fqdn }}.crt"
+dovecot_ssl_key: "<{{ openssl_private_key['filename'] }}"
